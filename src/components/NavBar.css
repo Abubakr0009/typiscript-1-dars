@@ -1,0 +1,51 @@
+/* General Styles */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: white;
+    height: 80px;
+  }
+  
+  .logo img {
+    height: auto;
+    width: auto;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .nav-link {
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .nav-link:hover {
+    color: #46A358;
+  }
+  
+  .icons-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .search-icon svg, .bell-icon svg, .cart-icon svg {
+    fill: currentColor;
+  }
+  
+  .navbar-divider {
+    margin: 10px 0;
+    border: 1px solid #46A358;
+  }
+  

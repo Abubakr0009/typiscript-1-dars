@@ -1,36 +1,39 @@
+import axios from "axios";
 import "./App.css";
+// import { Person } from "./type/Person";
+import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
+import Navbar from "./components/NavBar";
+
 
 function App() {
-  // 1-misol
-  const name = "Abubakr";
-  console.log(name);
+  const [users, setUsers] = useState<Person[]>([]);
 
-  // 2-misol
-  const age: number = 25;
-  const newAge: number = age * 10;
+  async function getData() {
+    const res = await axios.get("https://dummyjson.com/users");
+    setUsers(res.data.users);
+  }
 
-  console.log(`Yangi yosh: ${newAge}`);
+  useEffect(() => {
+    getData();
+  }, []);
 
-  // 3-misol
-  const isDeveloper: boolean = true;
+  return (
+    <>
+      <Navbar />
 
-  console.log(isDeveloper);
+      <div>
+        {users.map((user: Person) => (
+          <div key={user.id} className="user-container">
+            <h3 className="user-name">{user.name}</h3>
+            <p className="user-email">{user.email}</p>
+          </div>
+        ))}
+      </div>
 
-  // 4-misol
-  const favoriteFruits: string[] = ["Olma", "banan", "Apelsin"];
-
-  console.log(favoriteFruits);
-
-  // 5-misol
-  const person: { name: string; age: number; student: boolean } = {
-    name: "Abubakr",
-    age: 15,
-    student: true,
-  };
-
-  console.log(person); 
-
-  return <></>;
+      <Footer />
+    </>
+  );
 }
 
 export default App;
